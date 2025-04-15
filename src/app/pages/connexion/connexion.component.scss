@@ -1,0 +1,82 @@
+//form{
+//
+//  align-items: center;
+//  margin: 2em;
+//  min-width: 400px;
+//  max-width: 600px;
+//  width: 100%;
+//  display: flex;
+//  flex-direction: column;
+//  border-radius: 4px;
+//  position: absolute;
+//
+//}
+//
+//input[type=text]{
+//  -webkit-appearance: none;
+//  appearance: none;
+//}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  padding: 2em;
+  margin: 2em auto;
+  min-width: 300px;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+  background-color: #013662; // bleu foncé
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  color: #ffffff;
+
+  ::ng-deep mat-form-field {
+    width: 100%;
+
+    .mat-form-field-wrapper {
+      padding-bottom: 0.5em;
+    }
+
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+      background-color: #ffffff;
+      border-radius: 4px;
+    }
+
+    .mat-form-field-label {
+      color: #013662 !important;
+    }
+
+    .mat-input-element {
+      color: #013662;
+    }
+
+    .mat-form-field-outline {
+      color: #23CC64;
+    }
+
+    mat-error {
+      color: #ff6b6b;
+      font-size: 0.875em;
+    }
+  }
+
+  button {
+    background-color: #23CC64;
+    color: white;
+    padding: 0.8em 1.5em;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: bold;
+    align-self: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #1ba553;
+    }
+  }
+}
+

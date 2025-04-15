@@ -1,0 +1,49 @@
+<!--@if (["ROLE_VENDEUR", "ROLE_CHEF_RAYON"].indexOf(auth.role!) != -1){-->
+@if (auth.role == "ROLE_VENDEUR" || auth.role == "ROLE_CHEF_RAYON") {
+
+<!--Ceci est une directive : on ajoute un comportement à un composant déjà existant pour ne pas tout casser-->
+
+<button mat-raised-button routerLink="/ajout-product">
+  Ajouter un produit
+</button>
+}
+
+<div class="row">
+
+  @for (product of products; track $index) {
+
+    <div class="col-6 mb-4">
+
+    <mat-card appearance="outlined" [class.occasion]="product.etat.id == 2 ">
+      <mat-card-header>
+        <mat-card-title>{{ product.nom }}</mat-card-title>
+        <mat-card-subtitle>
+          <span class="code">{{ product.codeArticle }}</span>
+
+          @for (etiquette of product.etiquettes; track $index) {
+          <span class="etiquette" [ngStyle]="{backgroundColor: etiquette.couleur}">{{ etiquette.nom }}</span>
+          }
+
+        </mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://picsum.photos/id/{{product.id}}/600/400" alt="">
+      <mat-card-content>
+        <p>
+          {{ product.description }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+  @if (auth.role == "ROLE_VENDEUR" || auth.role == "ROLE_CHEF_RAYON") {
+  <button mat-button [routerLink]="['/modifier-product/', product.id]">Editer</button>
+        <button mat-button>Supprimer</button>
+        <button mat-button>Acheter</button>
+      }
+      </mat-card-actions>
+    </mat-card>
+
+    </div>
+
+  }
+
+</div>
+
