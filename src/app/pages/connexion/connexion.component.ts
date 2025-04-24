@@ -3,7 +3,6 @@ import {MatInputModule} from '@angular/material/input';
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {HttpClient} from '@angular/common/http';
-import {MatSnackBar} from '@angular/material/snack-bar';
 import {NotificationService} from '../../services/notification.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';

@@ -33,7 +33,6 @@ export class AccueilComponent implements OnInit {
   ngOnInit() {
 
     // const jwt = localStorage.getItem("jwt"); // on dégage ça + le if ensuite puisque ce sera fait automatiquement
-
     // if (jwt) {
 
       this.http

@@ -9,7 +9,7 @@ export class NotificationService {
 // on veut pouvoir faire des notifications
   notification = inject(MatSnackBar)
 
-  show(message: string, type : "valid" | "error" | "warning" | "info") {
+  show(message: string, type : "valid" | "error" | "warning" | "info" = "info") {
     this.notification.open(
       message,
       "",

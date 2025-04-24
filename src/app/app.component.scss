@@ -1,29 +1,5 @@
-.sidenav-container {
-  height: 100vh;
-}
-
-.sidenav {
-  width: 250px;
-  background-color: #fff;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  z-index: 1000;
-  transition: transform 0.3s ease-in-out;
-}
-
-.mat-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.main-content {
-  padding: 16px;
-}
-
 .page-actuelle {
-  color: red;
-}
 
-.close-btn {
-  margin-left: auto;
+  color: red;
+
 }
