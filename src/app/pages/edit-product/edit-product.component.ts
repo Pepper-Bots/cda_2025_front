@@ -75,6 +75,9 @@ export class EditProductComponent implements OnInit {
       // Pour éditer produit
       if (this.productEdite) {
 
+        // const productArenvoyer = {...this.formulaire.value, createur : this.productEdite.createur} => MAUVAISE SOLUTION -> logique doit rester dans le back pour associer le créateur
+        // => Voir productController
+
         // TODO notification 'produit modifié' ne s'affiche pas -> A corriger
         this.http
           .put('http://localhost:8080/product' + this.productEdite.id, this.formulaire.value) // TODO chercher différence méthode post & put -> laquelle mieux ici ?
