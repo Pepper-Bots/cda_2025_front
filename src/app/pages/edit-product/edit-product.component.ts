@@ -5,7 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {MatOption, MatSelect, MatSelectModule} from '@angular/material/select';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {NotificationService} from '../../services/notification.service';
 
@@ -24,6 +24,7 @@ export class EditProductComponent implements OnInit {
   http = inject(HttpClient);
   activatedRoute = inject(ActivatedRoute);
   notification = inject(NotificationService);
+  router = inject(Router);
 
   formulaire = this.formBuilder.group({
     nom: ['Nouveau produit', [Validators.required, Validators.maxLength(20), Validators.minLength(3)]],
