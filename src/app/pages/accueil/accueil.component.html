@@ -1,42 +1,95 @@
-<!--@if (["ROLE_VENDEUR", "ROLE_CHEF_RAYON"].indexOf(auth.role!) != -1){-->
+<!--
+  Ce template gère l'affichage des produits avec des fonctionnalités conditionnelles
+  selon le rôle de l'utilisateur. Seuls les vendeurs et chefs de rayon
+  ont accès à certaines fonctionnalités d'administration.
+-->
+
+<!--
+  Condition qui vérifie si l'utilisateur connecté a un rôle "VENDEUR" ou "CHEF_RAYON"
+  Dans ce cas, on affiche le bouton pour ajouter un produit
+  La ligne commentée montre une autre façon d'écrire la même condition avec indexOf
+@if (["ROLE_VENDEUR", "ROLE_CHEF_RAYON"].indexOf(auth.role!) != -1){-->
 @if (auth.role == "ROLE_VENDEUR" || auth.role == "ROLE_CHEF_RAYON") {
 
 <!--Ceci est une directive : on ajoute un comportement à un composant déjà existant pour ne pas tout casser-->
 
+  <!-- Bouton pour ajouter un produit - n'est visible que pour les rôles autorisés -->
+  <!-- Ce bouton utilise Material Design et la navigation Angular via routerLink -->
 <button mat-raised-button routerLink="/ajout-product">
   Ajouter un produit
 </button>
 }
 
+<!-- Conteneur principal organisé en grille (système de grille Bootstrap) -->
 <div class="row">
 
+  <!--
+    Boucle sur le tableau 'products' pour afficher chaque produit
+    La directive 'track $index' optimise le rendu en aidant Angular à suivre les changements
+  -->
   @for (product of products; track $index) {
-
+    <!--
+          Chaque produit occupe la moitié de la largeur disponible (col-6)
+          avec une marge inférieure (mb-4)
+        -->
     <div class="col-6 mb-4">
-
+    <!--
+           Carte Material Design pour chaque produit
+           La classe conditionnelle 'occasion' est appliquée si l'ID de l'état du produit est 2
+         -->
     <mat-card appearance="outlined" [class.occasion]="product.etat.id == 2 ">
+      <!-- En-tête de la carte avec le nom du produit -->
       <mat-card-header>
+        <!-- Titre de la carte (nom du produit) -->
         <mat-card-title>{{ product.nom }}</mat-card-title>
         <mat-card-subtitle>
+          <!-- Affichage du code article dans un span avec la classe 'code' -->
           <span class="code">{{ product.codeArticle }}</span>
 
+          <!--
+              Boucle sur les étiquettes associées au produit
+              Chaque étiquette est affichée avec sa couleur associée
+            -->
           @for (etiquette of product.etiquettes; track $index) {
+            <!--
+                Application dynamique de la couleur d'arrière-plan pour chaque étiquette
+                en utilisant la directive ngStyle
+              -->
           <span class="etiquette" [ngStyle]="{backgroundColor: etiquette.couleur}">{{ etiquette.nom }}</span>
           }
 
         </mat-card-subtitle>
       </mat-card-header>
+
+      <!--
+          Image du produit générée dynamiquement avec Lorem Picsum
+          en utilisant l'ID du produit pour avoir une image différente par produit
+        -->
       <img mat-card-image src="https://picsum.photos/id/{{product.id}}/600/400" alt="">
+
+      <!-- Corps de la carte contenant la description du produit -->
       <mat-card-content>
         <p>
           {{ product.description }}
         </p>
       </mat-card-content>
+
+      <!--
+          Actions possibles sur le produit (boutons)
+          Certains boutons ne sont visibles que pour les rôles autorisés
+        -->
       <mat-card-actions>
-  @if (auth.role == "ROLE_VENDEUR" || auth.role == "ROLE_CHEF_RAYON") {
+        <!-- Condition de vérification des rôles identique à celle du début -->
+        @if (auth.role == "ROLE_VENDEUR" || auth.role == "ROLE_CHEF_RAYON") {
+          <!--
+              Bouton d'édition - redirige vers la page de modification
+              en passant l'ID du produit en paramètre
+            -->
   <button mat-button [routerLink]="['/modifier-product/', product.id]">Editer</button>
-        <button mat-button>Supprimer</button>
-        <button mat-button>Acheter</button>
+          <!-- Bouton de suppression -->
+          <button mat-button>Supprimer</button>
+          <!-- Bouton d'achat -->
+          <button mat-button>Acheter</button>
       }
       </mat-card-actions>
     </mat-card>
