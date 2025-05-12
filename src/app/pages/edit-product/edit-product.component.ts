@@ -8,13 +8,17 @@ import {MatOption, MatSelect, MatSelectModule} from '@angular/material/select';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {NotificationService} from '../../services/notification.service';
+import {FileChooserComponent} from '../../components/file-chooser/file-chooser.component';
+import {ProductService} from '../../services/crud/product.service';
+
+// TODO Fichier à corriger voir dépot Franck
 
 // ReactiveFormsModule utilisé pour valider le formulaire
 // FormsModule bloque le formulaire pour ne pas recharger la page
 @Component({
   selector: 'app-edit-product',
   imports: [MatInputModule, MatButtonModule, MatIconModule,
-    MatSelectModule, ReactiveFormsModule, FormsModule, MatSelect, MatOption],
+    MatSelectModule, ReactiveFormsModule, FormsModule, MatSelect, MatOption, FileChooserComponent],
   templateUrl: './edit-product.component.html',
   styleUrl: './edit-product.component.scss'
 })
@@ -25,6 +29,8 @@ export class EditProductComponent implements OnInit {
   activatedRoute = inject(ActivatedRoute);
   notification = inject(NotificationService);
   router = inject(Router);
+  produitService = inject(ProductService);
+  photo: File | null = null;
 
   formulaire = this.formBuilder.group({
     nom: ['Nouveau produit', [Validators.required, Validators.maxLength(20), Validators.minLength(3)]],
@@ -85,8 +91,17 @@ export class EditProductComponent implements OnInit {
 
       } else {
 
-        this.http
-          .post('http://localhost:8080/product', this.formulaire.value)
+        const formData = new FormData();
+
+        formData.set('product', new Blob([JSON.stringify(this.formulaire.value)], {type: 'application/json'}));
+
+        if (this.photo) {
+          formData.set('photo', this.photo);
+        }
+
+
+        return this.http
+          .post('http://localhost:8080/product', formData)
           .subscribe(resultat => {
             this.notification.show("Le produit a bien été ajouté", "valid")
           })
@@ -98,6 +113,11 @@ export class EditProductComponent implements OnInit {
   compareId(o1: {id: number}, o2: {id: number}) {
 
     return o1.id === o2.id;
+  }
+
+  onPhotoSelectionne(fichier: File | null) {
+    // console.log(fichier);
+    this.photo = fichier;
   }
 
 }
