@@ -1,11 +1,9 @@
-<!--<input #fileChooser type="file" [(ngModel)]="fichier">-->
 <input #fileChooser type="file" (change)="onFichierSelectionne($event)">
 
-<div class="button" (click)="fileChooser.click()">
+<div class="bouton" (click)="fileChooser.click()">
   <span class="material-symbols-outlined">upload_file</span>
-<!--  <mat-icon fontIcon="upload_file"></mat-icon>-->
 </div>
 
 <span class="nom-fichier">
-  {{fichier?.name ?? 'Aucun fichier sélectionné' }}
+  {{ fichier?.name ?? 'Aucun fichier sélectionné' }}
 </span>

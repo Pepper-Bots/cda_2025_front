@@ -1,62 +1,28 @@
-:root {
-  --primary-color: #013662;
-  --accent-color: #23CC64;
-  --text-light: #ffffff;
-  --text-dark: #222222;
-}
-
-body {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* You can add global styles to this file, and also import other style files */
 
 html, body {
   height: 100%;
 }
 
-button, input, select {
-  transition: all 0.3s ease;
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-h1, h2, h3 {
-  font-weight: 500;
-  color: var(--accent-color);
-}
-
-body.dark-mode {
-  background-color: #121212;
-  color: #eee;
-}
-
-
-mat-snack-bar-container{
-  /* Style commun à toutes les notifications */
-  color: white; /* Couleur du texte par défaut */
-  font-size: 1rem; /* Taille de texte */
-  font-weight: 500; /* Poids du texte */
-  border-radius: 4px; /* Coins arrondis */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre légère */
-  &.error .mat-mdc-snackbar-surface {
-    background-color: #f44336; /* Rouge vif pour les erreurs */
-    border-left: 5px solid #d32f2f; /* Bordure gauche pour accentuer */
-  }
+mat-snack-bar-container {
   &.valid .mat-mdc-snackbar-surface {
-    background-color: #4caf50; /* Vert vif pour le succès */
-    border-left: 5px solid #388e3c; /* Bordure gauche pour accentuer */
+    background-color: green;
   }
+
+  &.error .mat-mdc-snackbar-surface {
+    background-color: #b50404;
+  }
+
   &.warning .mat-mdc-snackbar-surface {
-    background-color: #ff9800; /* Orange vif pour les avertissements */
-    border-left: 5px solid #f57c00; /* Bordure gauche pour accentuer */
+    background-color: #ff8242;
   }
+
   &.info .mat-mdc-snackbar-surface {
-    background-color: #2196f3; /* Bleu vif pour les informations */
-    border-left: 5px solid #1976d2; /* Bordure gauche pour accentuer */  }
+    background-color: #4675c6;
+  }
 }

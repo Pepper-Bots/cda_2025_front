@@ -39,7 +39,7 @@ export class EditProductComponent implements OnInit {
     prix: [0.10, [Validators.required, Validators.min(0.1)]],
     etat: [{id: 1}],
     etiquettes: [[] as Etiquette[]],
-  });
+  })
 
   etats: Etat[] = []
   etiquettes: Etiquette[] = [];
@@ -73,22 +73,20 @@ export class EditProductComponent implements OnInit {
 
   }
 
-
-  onAjoutProduct() {
+  // @ts-ignore
+  onAjoutProduct(){
 
     if (this.formulaire.valid) {
       // console.log(this.formulaire.value);
 
       // Pour éditer produit
       if (this.productEdite) {
-
-        // TODO notification 'produit modifié' ne s'affiche pas -> A corriger
-        this.http
-          .put('http://localhost:8080/product' + this.productEdite.id, this.formulaire.value) // TODO chercher différence méthode post & put -> laquelle mieux ici ?
-          .subscribe(resultat => {
-            this.notification.show("Le produit a bien été modifié", "valid")
+        this.produitService
+          .update(this.productEdite.id, this.formulaire.value) // TODO chercher différence méthode post & put -> laquelle mieux ici ?
+          .subscribe({
+            next: () => this.notification.show("Le produit a bien été ajouté", "valid"),
+            error: () => this.notification.show("Problème de communication", "error"),
           })
-
       } else {
 
         const formData = new FormData();
@@ -108,10 +106,9 @@ export class EditProductComponent implements OnInit {
       }
     }
 
-  }
+  };
 
   compareId(o1: {id: number}, o2: {id: number}) {
-
     return o1.id === o2.id;
   }
 
