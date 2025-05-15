@@ -1,0 +1,601 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cda-2025-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">cda-2025-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AccueilComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/accueil/accueil.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-accueil</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>MatButtonModule</code>
+                            <code>MatCardModule</code>
+                            <code>RouterLink</code>
+                            <code>NgStyle</code>
+                                <code><a href="../directives/ImgSecuredDirective.html" target="_self" >ImgSecuredDirective</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./accueil.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./accueil.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#auth" >auth</a>
+                            </li>
+                            <li>
+                                <a href="#http" >http</a>
+                            </li>
+                            <li>
+                                <a href="#products" >products</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/pages/accueil/accueil.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth"></a>
+                    <span class="name">
+                        <span ><b>auth</b></span>
+                        <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AuthService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/accueil/accueil.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="http"></a>
+                    <span class="name">
+                        <span ><b>http</b></span>
+                        <a href="#http"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(HttpClient)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/accueil/accueil.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="products"></a>
+                    <span class="name">
+                        <span ><b>products</b></span>
+                        <a href="#products"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Product[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/accueil/accueil.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, inject, OnInit} from &#x27;@angular/core&#x27;;
+import {HttpClient} from &#x27;@angular/common/http&#x27;;
+import {MatButtonModule} from &#x27;@angular/material/button&#x27;;
+import {MatCardModule} from &#x27;@angular/material/card&#x27;;
+import {RouterLink} from &#x27;@angular/router&#x27;;
+import {NgStyle} from &#x27;@angular/common&#x27;;
+import {AuthService} from &#x27;../../services/auth.service&#x27;;
+import {ImgSecuredDirective} from &#x27;../../components/img-secured/img-secured.directive&#x27;;
+
+
+// @ts-ignore
+@Component({
+  selector: &#x27;app-accueil&#x27;,
+  imports: [
+    MatButtonModule,
+    MatCardModule,
+    RouterLink,
+    NgStyle,
+    ImgSecuredDirective
+    ],
+    templateUrl: &#x27;./accueil.component.html&#x27;,
+  styleUrl: &#x27;./accueil.component.scss&#x27;
+})
+export class AccueilComponent implements OnInit {
+  // titre &#x3D; &quot;Accueil&quot;
+  // compteur &#x3D; 0
+  //
+  // onClic() {
+  //   //console.log(&quot;coucou&quot;);
+  //   this.compteur ++
+  // }
+  http &#x3D; inject(HttpClient); // inject pour récupérer un service
+  products: Product[] &#x3D; []
+  auth &#x3D; inject(AuthService);
+
+  // méthode qui se déclenche dès que le composant a fini d&#x27;etre initialisé
+  ngOnInit() {
+
+    // const jwt &#x3D; localStorage.getItem(&quot;jwt&quot;); // on dégage ça + le if ensuite puisque ce sera fait automatiquement
+    // if (jwt) {
+
+      this.http
+        .get&lt;Product[]&gt;(&quot;http://localhost:8080/products&quot;)
+        // {headers: {Authorization: &quot;Bearer &quot; + jwt }}) // lien entre front &amp; back → ligne enlevée avec automatisation authorization jwt → voir jwt.interceptor
+        .subscribe(products &#x3D;&gt; this.products &#x3D; products) // on récupère la liste products
+    }
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!--@if ([&quot;ROLE_VENDEUR&quot;, &quot;ROLE_CHEF_RAYON&quot;].indexOf(auth.role!) !&#x3D; -1){--&gt;
+@if (auth.role &#x3D;&#x3D; &quot;ROLE_VENDEUR&quot; || auth.role &#x3D;&#x3D; &quot;ROLE_CHEF_RAYON&quot;) {
+
+&lt;!--Ceci est une directive : on ajoute un comportement à un composant déjà existant pour ne pas tout casser--&gt;
+
+&lt;button mat-raised-button routerLink&#x3D;&quot;/ajout-product&quot;&gt;
+  Ajouter un produit
+&lt;/button&gt;
+}
+
+&lt;div class&#x3D;&quot;row&quot;&gt;
+
+  @for (product of products; track $index) {
+
+    &lt;div class&#x3D;&quot;col-6 mb-4&quot;&gt;
+
+    &lt;mat-card appearance&#x3D;&quot;outlined&quot; [class.occasion]&#x3D;&quot;product.etat.id &#x3D;&#x3D; 2 &quot;&gt;
+      &lt;mat-card-header&gt;
+        &lt;mat-card-title&gt;{{ product.nom }}&lt;/mat-card-title&gt;
+        &lt;mat-card-subtitle&gt;
+          &lt;span class&#x3D;&quot;code&quot;&gt;{{ product.codeArticle }}&lt;/span&gt;
+
+          @for (etiquette of product.etiquettes; track $index) {
+          &lt;span class&#x3D;&quot;etiquette&quot; [ngStyle]&#x3D;&quot;{backgroundColor: etiquette.couleur}&quot;&gt;{{ etiquette.nom }}&lt;/span&gt;
+          }
+
+        &lt;/mat-card-subtitle&gt;
+      &lt;/mat-card-header&gt;
+      &lt;img ImgSecured mat-card-image src&#x3D;&quot;https://localhost:8080/product/image/{{product.id}}&quot; alt&#x3D;&quot;&quot;&gt;
+      &lt;mat-card-content&gt;
+        &lt;p&gt;
+          {{ product.description }}
+        &lt;/p&gt;
+      &lt;/mat-card-content&gt;
+      &lt;mat-card-actions&gt;
+  @if (auth.role &#x3D;&#x3D; &quot;ROLE_VENDEUR&quot; || auth.role &#x3D;&#x3D; &quot;ROLE_CHEF_RAYON&quot;) {
+  &lt;button mat-button [routerLink]&#x3D;&quot;[&#x27;/modifier-product/&#x27;, product.id]&quot;&gt;Editer&lt;/button&gt;
+        &lt;button mat-button&gt;Supprimer&lt;/button&gt;
+        &lt;button mat-button&gt;Acheter&lt;/button&gt;
+      }
+      &lt;/mat-card-actions&gt;
+    &lt;/mat-card&gt;
+
+    &lt;/div&gt;
+
+  }
+
+&lt;/div&gt;
+
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!--@if (["ROLE_VENDEUR", "ROLE_CHEF_RAYON"].indexOf(auth.role!) != -1){-->@if (auth.role == "ROLE_VENDEUR" || auth.role == "ROLE_CHEF_RAYON") {<!--Ceci est une directive : on ajoute un comportement à un composant déjà existant pour ne pas tout casser--><button mat-raised-button routerLink="/ajout-product">  Ajouter un produit</button>}<div class="row">  @for (product of products; track $index) {    <div class="col-6 mb-4">    <mat-card appearance="outlined" [class.occasion]="product.etat.id == 2 ">      <mat-card-header>        <mat-card-title>{{ product.nom }}</mat-card-title>        <mat-card-subtitle>          <span class="code">{{ product.codeArticle }}</span>          @for (etiquette of product.etiquettes; track $index) {          <span class="etiquette" [ngStyle]="{backgroundColor: etiquette.couleur}">{{ etiquette.nom }}</span>          }        </mat-card-subtitle>      </mat-card-header>      <img ImgSecured mat-card-image src="https://localhost:8080/product/image/{{product.id}}" alt="">      <mat-card-content>        <p>          {{ product.description }}        </p>      </mat-card-content>      <mat-card-actions>  @if (auth.role == "ROLE_VENDEUR" || auth.role == "ROLE_CHEF_RAYON") {  <button mat-button [routerLink]="[\'/modifier-product/\', product.id]">Editer</button>        <button mat-button>Supprimer</button>        <button mat-button>Acheter</button>      }      </mat-card-actions>    </mat-card>    </div>  }</div></div>'
+    var COMPONENTS = [{'name': 'AccueilComponent', 'selector': 'app-accueil'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConnexionComponent', 'selector': 'app-connexion'},{'name': 'EditProductComponent', 'selector': 'app-edit-product'},{'name': 'ListeProduitsComponent', 'selector': 'app-liste-produits'},{'name': 'Page404Component', 'selector': 'app-page404'}];
+    var DIRECTIVES = [{'name': 'ImgSecuredDirective', 'selector': '[ImgSecured]'}];
+    var ACTUAL_COMPONENT = {'name': 'AccueilComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AccueilComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

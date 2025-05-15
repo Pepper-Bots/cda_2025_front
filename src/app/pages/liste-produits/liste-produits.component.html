@@ -1,45 +1,93 @@
+<!--*
+  @description
+  Composant d’affichage d’un tableau de produits à l’aide de Angular Material.
+  Chaque ligne correspond à un produit, avec affichage du nom, du code article, du prix, d’une description partielle et de l’email du créateur.
+  Ce tableau est utilisé dans un contexte d'administration ou de gestion de catalogue produit.
+  Les colonnes affichées sont contrôlées dynamiquement via 'displayedColumns'.
+
+@example
+Produit :
+{
+  nom: 'Produit A',
+  codeArticle: 'A123',
+  prix: 9.99,
+  description: 'Un excellent produit pour tous les jours.',
+  createur: { email: 'user@example.com' }
+}
+*-->
+
+
 <table mat-table [dataSource]="products">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
-  <!-- Position Column -->
+  <!--*
+    @description
+    Colonne d’affichage du nom du produit.
+  *-->
   <ng-container matColumnDef="nom">
     <th mat-header-cell *matHeaderCellDef> Nom </th>
     <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
   </ng-container>
 
-  <!-- Name Column -->
+  <!--*
+      @description
+      Colonne d’affichage du code article associé au produit.
+  *-->
   <ng-container matColumnDef="code">
     <th mat-header-cell *matHeaderCellDef> Code Article </th>
     <td mat-cell *matCellDef="let element"> {{element.codeArticle}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
+  <!--*
+      @description
+      Colonne d’affichage du prix du produit, avec le symbole €.
+  *-->
   <ng-container matColumnDef="prix">
     <th mat-header-cell *matHeaderCellDef> Prix </th>
     <td mat-cell *matCellDef="let element"> {{element.prix}} €</td>
   </ng-container>
 
-  <!-- Symbol Column -->
+  <!--*
+      @description
+      Colonne d’affichage partiel de la description du produit (limité aux 5 premiers caractères).
+  *-->
   <ng-container matColumnDef="description">
     <th mat-header-cell *matHeaderCellDef> Description </th>
     <td mat-cell *matCellDef="let element"> {{element.description.substring(0, 5)}}...</td>
   </ng-container>
 
-  <!-- Symbol Column -->
+  <!--*
+      @description
+      Colonne d’affichage de l’adresse email du créateur du produit.
+  *-->
   <ng-container matColumnDef="createur">
     <th mat-header-cell *matHeaderCellDef> Créateur </th>
     <td mat-cell *matCellDef="let element"> {{element.createur.email}}</td>
   </ng-container>
 
-  <!-- Ajout d'un bouton de suppression -->
+
+  <!--*
+   @description
+   (Commenté) Colonne prévue pour ajouter un bouton de suppression d’un produit.
+   À décommenter pour activer cette fonctionnalité.
+ *-->
 <!--  <ng-container matColumnDef="action">-->
 <!--    <th mat-header-cell *matHeaderCellDef></th>-->
 <!--    <td mat-cell *matCellDef="let element"> <button (click)="supprimerUser(element)"></button></td>-->
 <!--  </ng-container>-->
 
+  <!--*
+    @description
+    Ligne d’en-tête du tableau, les colonnes affichées sont définies dynamiquement via la variable `displayedColumns`.
+  *-->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+  <!--*
+    @description
+    Lignes de données du tableau, chaque ligne correspond à un produit.
+  *-->
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
