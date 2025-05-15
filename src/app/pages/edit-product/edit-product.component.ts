@@ -8,6 +8,7 @@ import {MatOption, MatSelect, MatSelectModule} from '@angular/material/select';
 import {ActivatedRoute} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {NotificationService} from '../../services/notification.service';
+import {Etat} from '../../models/etat';
 
 // ReactiveFormsModule utilisé pour valider le formulaire
 // FormsModule bloque le formulaire pour ne pas recharger la page

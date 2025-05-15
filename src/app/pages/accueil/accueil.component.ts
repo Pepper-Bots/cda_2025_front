@@ -5,16 +5,20 @@ import {MatCardModule} from '@angular/material/card';
 import {RouterLink} from '@angular/router';
 import {NgStyle} from '@angular/common';
 import {AuthService} from '../../services/auth.service';
+import {ImgSecuredDirective} from '../../components/img-secured/img-secured.directive';
 
 
+// @ts-ignore
 @Component({
   selector: 'app-accueil',
   imports: [
     MatButtonModule,
     MatCardModule,
     RouterLink,
-    NgStyle],
-  templateUrl: './accueil.component.html',
+    NgStyle,
+    ImgSecuredDirective
+    ],
+    templateUrl: './accueil.component.html',
   styleUrl: './accueil.component.scss'
 })
 export class AccueilComponent implements OnInit {
