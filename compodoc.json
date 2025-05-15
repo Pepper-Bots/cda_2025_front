@@ -1,0 +1,8 @@
+{
+  "name": "Mon Projet Angular",
+  "includesName": "Sources additionnelles",
+  "disableSourceCode": false,
+  "disableGraph": false,
+  "output": "documentation",
+  "theme": "material"
+}
