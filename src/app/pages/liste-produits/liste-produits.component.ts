@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatTable } from '@angular/material/table';
+import {environment} from '../../../environments/environment';
 
 /**
  * Composant responsable de l'affichage de la liste des produits.
@@ -39,7 +40,7 @@ export class ListeProduitsComponent {
    */
   ngOnInit() {
     this.http
-      .get<Product[]>('http://localhost:8080/products')
+      .get<Product[]>(environment.serverUrl + 'product')
       .subscribe(products => this.products = products);
   }
 }

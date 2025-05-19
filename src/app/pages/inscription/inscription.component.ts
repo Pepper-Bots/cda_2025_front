@@ -6,20 +6,19 @@ import {HttpClient} from '@angular/common/http';
 import {NotificationService} from '../../services/notification.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
-import {environment} from '../../../environments/environment';
 
 @Component({
-  selector: 'app-connexion',
+  selector: 'app-inscription',
   imports: [
     MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
   ],
-  templateUrl: './connexion.component.html',
-  styleUrl: './connexion.component.scss'
+  templateUrl: './inscription.component.html',
+  styleUrl: './inscription.component.scss'
 })
-export class ConnexionComponent {
+export class InscriptionComponent {
 
   formBuilder = inject(FormBuilder);
   http = inject(HttpClient);
@@ -28,7 +27,7 @@ export class ConnexionComponent {
   auth = inject(AuthService);
 
   formulaire = this.formBuilder.group({
-    email: ['a@a.com', [Validators.required, Validators.email]],
+    email: ['z@z.com', [Validators.required, Validators.email]],
     password: ['root', [Validators.required]],
   })
 
@@ -37,22 +36,22 @@ export class ConnexionComponent {
 
       this.http
         .post(
-          environment.serverUrl + "connexion",
-        this.formulaire.value,
-        {responseType: "text"})
-      .subscribe({
-        next : jwt => {
-          this.router.navigateByUrl("/accueil")
-          this.auth.decodeJwt(jwt);
-        },
+          "http://localhost:8080/inscription",
+          this.formulaire.value)
+        .subscribe({
+          next : jwt => {
+            this.router.navigateByUrl("/connexion")
+            this.notification.show("un lien de confiramtion couas a été envoyé sur l'adresse email que vous avez fourni, " +
+              "cliquez sur ce lien avant de vous connecter", "warning")
+          },
 
-        error : erreur => {
-          if(erreur.status === 401) {
-            this.notification.show("Mauvais login / mot de passe", "error")
+          error : erreur => {
+            if(erreur.status === 409) {
+              this.notification.show("Cet email est déjà utilisé", "error")
+            }
           }
-        }
 
-      })
+        })
 
 
 
